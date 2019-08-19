@@ -12,4 +12,14 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/level' do
+    erb :level
+  end
+
+  post '/new_game' do
+    session['level'] = params['game_level']
+    erb :game
+  end
+
 end
