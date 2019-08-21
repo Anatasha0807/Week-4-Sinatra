@@ -3,20 +3,19 @@
   <h2>Guess the number</h2>
   <%= session['secret_number'] %>
 
+
   <form action="/game" method="post">
     <input type="number" name="guessed_number" placeholder="Enter your guess number">
     <input type="submit" value="Submit">
   </form>
 
-
   <% if session['guessed_number'] != nil || session['guessed_number'] == '' %>
     <% if session['guessed_number'].to_i > session['secret_number'] %>
-      <p>The number is too high</p>
-      <p>Try Again..</p>
-
+      <p>Your number is too high! </p>
     <% elsif session['guessed_number'].to_i < session['secret_number'] %>
-      <p>The number is too low</p>
-      <p>Try Again..</p>
+      <p>Your number is too low! </p>
     <% end %>
+
+    <p><%= text_try_again %></p>
   <% end %>
 </div>
