@@ -1,10 +1,13 @@
-<div style="text-align: center;">
+<div style="text-align: center; font-family: 'Luckiest Guy', cursive;">
+
+  <img src="../images/peoplethink.jpg">
 
   <h2>Guess the number</h2>
   <%= session['secret_number'] %>
 
 
   <form action="/game" method="post">
+    <p style="font-family: 'Jaldi', sans-serif; font-size: 15px">
     <input type="number" name="guessed_number" placeholder="Enter your guess number">
     <input type="submit" value="Submit">
   </form>

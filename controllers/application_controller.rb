@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     session['level'] = params['game_level']
     set_secret_number
 
-    session['total_chances'] = total_chances
+    session['total_chances'] = total_chances(session['level'])
     session['counter'] = counter
 
     redirect to('/game')
@@ -72,8 +72,14 @@ private
     session['secret_number'] = secret_number(session['level'])
   end
 
-  def total_chances
-    3
+  def total_chances(level)
+    if level == 'easy'
+      chances = 4
+    elsif level == 'medium'
+      chances = 3
+    else
+      chances = 2
+    end
   end
 
   def counter
